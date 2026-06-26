@@ -18,7 +18,9 @@ package com.android.settingslib.widget
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import androidx.preference.PreferenceCategory
+import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceViewHolder
 import com.android.settingslib.widget.category.R
 
@@ -44,5 +46,35 @@ constructor(
         super.onBindViewHolder(holder)
         holder.isDividerAllowedAbove = false
         holder.isDividerAllowedBelow = false
+        holder.itemView.visibility = if (shouldShowDivider()) View.VISIBLE else View.GONE
+        holder.findViewById(R.id.settingslib_untitled_preference_category_divider)?.visibility =
+            holder.itemView.visibility
+    }
+
+    private fun shouldShowDivider(): Boolean {
+        if (!hasVisibleChildren(this)) {
+            return false
+        }
+
+        val parentGroup = parent ?: return false
+        for (i in 0 until parentGroup.preferenceCount) {
+            val preference = parentGroup.getPreference(i)
+            if (preference === this) {
+                return false
+            }
+            if (preference is PreferenceCategory && hasVisibleChildren(preference)) {
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun hasVisibleChildren(group: PreferenceGroup): Boolean {
+        for (i in 0 until group.preferenceCount) {
+            if (group.getPreference(i).isVisible) {
+                return true
+            }
+        }
+        return false
     }
 }

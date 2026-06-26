@@ -22,7 +22,7 @@
         android:end="?android:attr/listPreferredItemPaddingEnd">
         <shape android:shape="rectangle">
             <solid
-                android:color="@color/settingslib_materialColorSurfaceContainer" />
+                android:color="@color/settingslib_materialColorSurfaceContainerHighest" />
             <corners
                 android:radius="@dimen/settingslib_expressive_radius_extralarge1" />
         </shape>

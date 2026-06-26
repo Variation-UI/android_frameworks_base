@@ -19,15 +19,13 @@
     <item
         android:end="?android:attr/listPreferredItemPaddingEnd"
         android:start="?android:attr/listPreferredItemPaddingStart">
-        <shape
-            android:shape="rectangle"
-            android:tint="?android:attr/colorAccent">
+        <shape android:shape="rectangle">
             <corners
                 android:bottomLeftRadius="@dimen/settingslib_preference_corner_radius"
                 android:bottomRightRadius="@dimen/settingslib_preference_corner_radius"
                 android:topLeftRadius="4dp"
                 android:topRightRadius="4dp" />
-            <solid android:color="#42000000" />
+            <solid android:color="@color/settingslib_materialColorSurfaceContainerHighest" />
         </shape>
     </item>
 </ripple>
