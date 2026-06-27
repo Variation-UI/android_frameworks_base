@@ -16,31 +16,28 @@
   -->
 
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="?android:colorControlHighlight"
+    android:color="@color/settingslib_materialColorSurfaceContainerHighest"
     android:paddingStart="32dp"
     android:paddingEnd="32dp">
     <item
         android:start="?android:attr/listPreferredItemPaddingStart"
         android:end="?android:attr/listPreferredItemPaddingEnd">
-        <selector
-            android:enterFadeDuration="0"
-            android:exitFadeDuration="160">
-            <item android:state_pressed="true">
-                <shape android:shape="rectangle">
-                    <solid
-                        android:color="@color/settingslib_materialColorSurfaceContainerHighest" />
-                    <corners
-                        android:radius="4dp" />
-                </shape>
-            </item>
-            <item>
-                <shape android:shape="rectangle">
-                    <solid
-                        android:color="@android:color/transparent" />
-                    <corners
-                        android:radius="4dp" />
-                </shape>
-            </item>
-        </selector>
+        <shape android:shape="rectangle">
+            <solid
+                android:color="@android:color/transparent" />
+            <corners
+                android:radius="4dp" />
+        </shape>
+    </item>
+    <item
+        android:id="@android:id/mask"
+        android:start="?android:attr/listPreferredItemPaddingStart"
+        android:end="?android:attr/listPreferredItemPaddingEnd">
+        <shape android:shape="rectangle">
+            <solid
+                android:color="@android:color/white" />
+            <corners
+                android:radius="4dp" />
+        </shape>
     </item>
 </ripple>

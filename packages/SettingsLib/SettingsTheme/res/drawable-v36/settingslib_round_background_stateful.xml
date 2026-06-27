@@ -30,13 +30,7 @@
     <!-- If the preference layout is used without the expressive preference adapter or expressive
          design being enabled, no state will be set, and we need a default drawable background for
          this case. Due to b/36941443, we were not able to set the theme attribute
-         ?android:attr/selectableItemBackground as the default (no state) background. Hence, just
-         directly inline it as a drawable here. -->
-    <item>
-        <ripple android:color="?attr/colorControlHighlight">
-            <item android:id="@android:id/mask">
-                <color android:color="@android:color/white" />
-            </item>
-        </ripple>
-    </item>
+         ?android:attr/selectableItemBackground as the default (no state) background. Reuse the
+         default rounded background so press and release animations stay consistent. -->
+    <item android:drawable="@drawable/settingslib_round_background" />
 </selector>
